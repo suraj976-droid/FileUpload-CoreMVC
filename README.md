@@ -1,5 +1,5 @@
-# FileUpload-CoreMVC
-Asp.Net Core Mvc C# Entity Framework Razor
+# FileUpload-CoreMVC  WithOut Dependency Injection
+Asp.Net Core Mvc C# Entity Framework Razor WithOut Dependency Injection
 
 fILE Path => wwwroot\Content\Images
 
