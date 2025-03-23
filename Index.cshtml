@@ -1,0 +1,57 @@
+﻿
+
+@* 
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+ *@
+
+
+@model List<Emp>
+
+<partial name="Notification"></partial>
+
+<div class="container mt-5">
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h3 class="fw-bold">Employee List</h3>
+		<a class="btn btn-info text-white shadow-sm" asp-controller="Emp" asp-action="AddEmp">
+			<i class="bi bi-plus-lg"></i> Add Employee
+		</a>
+	</div>
+
+	<div class=" shadow-lg rounded">
+		<table class="table table-hover table-bordered text-center align-middle">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Photo</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Salary</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody class="table-light">
+				@foreach (var d in Model)
+				{
+					<tr>
+						<th scope="row" class="fw-semibold">@d.empId</th>
+                        <td><img src="~/@d.eimg" alt="Photo" style="width: 50px; height: 50px; border-radius: 50%;" /></td>
+						<td>@d.empName</td>
+						<td>@d.empEmail</td>
+						<td>@d.empSalary</td>
+						<td>
+							<a asp-action="DeleteEmp" asp-controller="Emp" onclick="return confirm('Are you sure')" asp-route-id="@d.empId" class="btn btn-danger">Delete</a>
+							<a asp-action="EditEmp" asp-controller="Emp" asp-route-id="@d.empId" class="btn btn-secondary">Edit</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+
+

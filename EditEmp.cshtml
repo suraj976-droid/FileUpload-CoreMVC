@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Emp
+
+<div class="container mt-5 d-flex justify-content-center">
+	<div class="card shadow-lg p-4" style="max-width: 500px; width: 100%;">
+		<h3 class="text-center mb-4">Employee Edit form</h3>
+		<form method="post" enctype="multipart/form-data">
+
+			<input asp-for="empId" type="hidden" />
+			<div class="mb-3">
+				<label class="form-label fw-semibold">Name</label>
+				<input asp-for="empName" class="form-control shadow-sm" />
+				<span asp-validation-for="empName" class="text-danger"></span>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label fw-semibold">Email</label>
+				<input asp-for="empEmail" class="form-control  shadow-sm" />
+				<span asp-validation-for="empEmail" class="text-danger"></span>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label fw-semibold">Salary</label>
+				<input asp-for="empSalary" class="form-control  shadow-sm" />
+				<span asp-validation-for="empSalary" class="text-danger"></span>
+			</div>
+
+			
+			<div class="mb-3">
+				<label class="form-label fw-semibold text-secondary">Picture</label>
+				<input type="file" name="eimg" class="form-control shadow-sm border-0 rounded-3" />
+
+			</div>
+
+			<button type="submit" class="btn btn-primary w-100 shadow-sm">Save</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
