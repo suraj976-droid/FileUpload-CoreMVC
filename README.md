@@ -12,7 +12,8 @@ Models => Emp.cs And EmpView.cs    Both For Same one is model and one it not ent
 Data => ApplicationDbContext.cs
 
 
-Sugar => On View Open Attachmnet in Tab and also download very short Trick using  target="_blank" and download Attribute inside the anchor tag
+-- Sugar Start  --
+=> On View Open Attachmnet in Tab and also download very short Trick using  target="_blank" and download Attribute inside the anchor tag
 
   <ul>
       @if (!string.IsNullOrEmpty(Model.AttachmentPaths))
@@ -32,3 +33,15 @@ Sugar => On View Open Attachmnet in Tab and also download very short Trick using
   </ul>
 
 
+Controller Code:      
+public IActionResult ViewNotice(int id)
+     {
+         var notice = _noticeService.GetNoticeById(id);
+         if (notice == null || notice.ExpiryDate < DateTime.Now)
+             return NotFound();
+
+         return View(notice);
+     }
+
+Column Name: AttachmentPaths
+-- Sugar End  --
